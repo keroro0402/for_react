@@ -1,5 +1,12 @@
-import Child from "./components/Child";
+import Child from './components/Child';
 
-const Example = () => <Child />;
-
-export default Example;
+export default () => {
+  return (
+    <>
+      <div className='App-start'>
+        <Child />
+        <Child color='red' />
+      </div>
+    </>
+  );
+};
