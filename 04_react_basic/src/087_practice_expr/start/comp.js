@@ -1,7 +1,11 @@
-export default () => {
+export default ({ array }) => {
   return (
     <>
-      <p>ごめんなさい。</p>
+      <h3>
+        {array.map((item) => {
+          return <span key={item}>{item}</span>;
+        })}
+      </h3>
     </>
   );
 };

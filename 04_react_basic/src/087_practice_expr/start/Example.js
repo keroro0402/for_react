@@ -1,12 +1,28 @@
 import C from './comp';
 
 const mes1 = 'JSX';
+const array = ['item1', 'item2', 'item3', 'item4', 'item5'];
+const fn = (data) => {
+  return `Hello ${data}`;
+};
+const obj = {
+  mes1: 'Rain',
+  mes2: 'OBJ',
+};
 
 export default () => {
   return (
     <>
       <h3>Hello {mes1}</h3>
-      <C />
+      {/* <C /> */}
+      <hr></hr>
+      <h3>{fn('Function')}</h3>
+      <hr></hr>
+      <C array={array} />
+      <hr></hr>
+      <h3>
+        {obj.mes1} : {obj.mes2}
+      </h3>
     </>
   );
 };
