@@ -1,9 +1,7 @@
-const Example = () => {
+export default () => {
   return (
-    <div>
-      <h3>startフォルダのコード</h3>
-    </div>
+    <>
+      <h3>こんばんは、こんにちは。</h3>
+    </>
   );
 };
-
-export default Example;
