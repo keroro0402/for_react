@@ -1,0 +1,19 @@
+$defaultColor: rgb(51, 129, 89);
+$subColor: red;
+$defaultBorder: 5px solid $defaultColor;
+$defaultPadding: 1.2rem;
+$subColor: red;
+$subBorder: 5px solid blue;
+$subPadding: 1.2rem;
+
+.comp {
+  border: $defaultBorder;
+  padding: $defaultPadding;
+  color: $subColor;
+}
+
+.subcomp {
+  border: $subBorder;
+  padding: $subPadding;
+  color: $subColor;
+}
