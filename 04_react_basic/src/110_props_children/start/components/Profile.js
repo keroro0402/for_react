@@ -1,13 +1,26 @@
-import "./Profile.css";
+// export default (data) => {
+//   console.log(data);
 
-const Profile = ({ name, age, country, color }) => {
+//   let a = [];
+
+//   console.log(a);
+//   return (
+//     <>
+//       <p></p>
+//     </>
+//   );
+// };
+
+export default ({ name, age, hobbies }) => {
   return (
-    <div className={`profile ${color}`}>
-      <h3>Name: {name}</h3>
-      <p>Age: {age} </p>
-      <p>From: {country}</p>
-    </div>
+    <>
+      <div>
+        <p>{name}</p>
+        <p>{age}</p>
+        {hobbies.map((item) => {
+          return <p key={item}>{item}</p>;
+        })}
+      </div>
+    </>
   );
 };
-
-export default Profile;

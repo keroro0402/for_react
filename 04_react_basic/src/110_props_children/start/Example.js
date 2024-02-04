@@ -1,17 +1,46 @@
-import Profile from "./components/Profile";
-import Container from "./components/Container";
+import Pro from './components/Profile';
+import Con from './components/Container';
 
-const profile = [
-  { name: "Takashi", age: 19, country: "Japan", color: "green" },
-  { name: "Jane", age: 28, country: "UK", color: "blue" },
+let array = [
+  {
+    name: '斉藤ななみ',
+    age: 32,
+    hobbies: ['walking', 'running'],
+  },
+  {
+    name: '大橋胸腺',
+    age: 36,
+    hobbies: ['movie'],
+  },
+  {
+    name: '鎌倉太一郎',
+    age: 53,
+    hobbies: ['fishing', 'drive', 'fly'],
+  },
+  {
+    name: '大崎みるく',
+    age: 61,
+    hobbies: ['卓球', '野球', '走り込み', '散歩'],
+  },
 ];
 
-const Example = () => {
-  return (
-    <div>
-      <Container title="Childrenとは？" />
-    </div>
-  );
+let obj = {
+  name: 'ジョーカー',
+  age: 999,
+  hobbies: ['death'],
 };
 
-export default Example;
+export default () => {
+  return (
+    <>
+      <Con>
+        {/* <Pro {...array[0]} /> */}
+        {array.map((item, index) => {
+          <Pro item />;
+        })}
+        {/* <Pro /> */}
+      </Con>
+      <hr></hr>
+    </>
+  );
+};
