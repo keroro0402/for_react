@@ -1,0 +1,28 @@
+.App-start .component.blue {
+  padding: 1rem;
+  color: blue;
+  border: 5px solid blue;
+}
+
+.App-start .component.red {
+  padding: 1rem;
+  color: red;
+  border: 5px solid red;
+}
+
+$q: red;
+$w: blue;
+$e: green;
+$r: brown;
+
+.blue {
+  color: $w;
+  border: 0.5rem solid $r;
+  padding: 1rem;
+}
+
+.red {
+  color: $q;
+  padding: 1rem;
+  border: 0.2em solid $e;
+}
