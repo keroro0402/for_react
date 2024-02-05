@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import Comp from './Comp';
 
 const Example = () => {
   let [count, setCount] = useState(0);
+  let [count2, setCount2] = useState(0);
 
   return (
     <>
@@ -24,6 +26,8 @@ const Example = () => {
       >
         -
       </button>
+      <hr></hr>
+      <Comp count={count2} setCount2={setCount2} />
     </>
   );
 };
