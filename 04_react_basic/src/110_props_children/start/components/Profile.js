@@ -1,26 +1,17 @@
-// export default (data) => {
-//   console.log(data);
-
-//   let a = [];
-
-//   console.log(a);
-//   return (
-//     <>
-//       <p></p>
-//     </>
-//   );
-// };
-
-export default ({ name, age, hobbies }) => {
+export default ({ props }) => {
+  console.log(props);
   return (
     <>
-      <div>
-        <p>{name}</p>
-        <p>{age}</p>
-        {hobbies.map((item) => {
-          return <p key={item}>{item}</p>;
-        })}
-      </div>
+      {props.map((item) => {
+        return (
+          <ul key={item.name}>
+            <li>{item.name}</li>
+            <li>{item.age}</li>
+            <li>{item.hobbies}</li>
+            {/* <li key={item.age}>{item.age}</li> */}
+          </ul>
+        );
+      })}
     </>
   );
 };
