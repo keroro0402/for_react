@@ -1,20 +1,43 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const Example = () => {
-  const [count, setCount] = useState(0);
-  const countUp = () => {
-    setCount((prevstate) => prevstate + 1);
-  };
-  const countDown = () => {
-    setCount(count - 1);
-  };
+let Comp = ({ title }) => {
+  let [count, setCount] = useState(0);
   return (
     <>
-      <h3>カウント: {count}</h3>
-      <button onClick={countUp}>+</button>
-      <button onClick={countDown}>-</button>
+      <h2>
+        {title} : {count}
+      </h2>
+      <button
+        onClick={() => {
+          setCount((pre) => (pre += 1));
+        }}
+      >
+        +
+      </button>
+      <button
+        onClick={() => {
+          setCount((pre) => (pre -= 1));
+        }}
+      >
+        -
+      </button>
     </>
   );
 };
 
-export default Example;
+export default () => {
+  let [flg, setFlg] = useState(true);
+
+  return (
+    <>
+      <button
+        onClick={() => {
+          setFlg((flg = !flg));
+        }}
+      >
+        toggle
+      </button>
+      <div>{flg ? <Comp title='A' key='A' /> : <Comp title='B' key='B' />}</div>
+    </>
+  );
+};
