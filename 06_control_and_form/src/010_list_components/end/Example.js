@@ -1,5 +1,4 @@
-
-const animals = ["Dog", "Cat", "Rat"];
+const animals = ['Dog', 'Cat', 'Rat'];
 
 const Example = () => {
   // POINT for文でJSXの配列を作成
@@ -23,7 +22,9 @@ const Example = () => {
         {/* {animalList}
         {helloAnimals} */}
         {/* POINT map関数はJSX内に記述可能 */}
-        {animals.map((animal) => <li>Hello, {animal}</li>)}
+        {animals.map((animal) => (
+          <li key={animal}>Hello, {animal}</li>
+        ))}
       </ul>
     </>
   );

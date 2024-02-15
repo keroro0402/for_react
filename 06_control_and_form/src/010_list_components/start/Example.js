@@ -1,16 +1,14 @@
+import { Comp } from './Comp.js';
+import Comp2 from './Comp2.js';
+import SexMachine from './list.json';
+import './Style.scss';
 
-const animals = ["Dog", "Cat", "Rat"];
-
-const Example = () => {
-
+export default () => {
   return (
     <>
-      <h3>配列の操作</h3>
-      <ul>
-        
-      </ul>
+      <Comp json={SexMachine} />
+      <hr></hr>
+      <Comp2 />
     </>
   );
 };
-
-export default Example;

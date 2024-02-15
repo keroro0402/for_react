@@ -1,0 +1,23 @@
+$red: red;
+$safeColor: green;
+
+.comp {
+  &__item {
+    color: $red;
+  }
+}
+
+.comp99 {
+  &__momo {
+    color: $safeColor;
+  }
+}
+
+.sw {
+  border: 2px solid rgb(14, 14, 14);
+  padding: 1rem;
+  .area {
+    color: blue;
+    font-size: 2rem;
+  }
+}
