@@ -1,23 +1,26 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const animals = ["Dog", "Cat", "Rat"];
+const animals = ['Dog', 'Cat', 'Rat'];
 // POINT filterメソッドの使い方
 const Example = () => {
-  const [filterVal, setFilterVal] = useState("");
+  const [filterVal, setFilterVal] = useState('');
   return (
     <>
       <h3>配列のフィルター</h3>
-      <input type="text" value={filterVal} onChange={(e) => setFilterVal(e.target.value)} />
+      <input
+        type='text'
+        value={filterVal}
+        onChange={(e) => setFilterVal(e.target.value)}
+      />
       <ul>
         {animals
-          .filter(animal => {
+          .filter((animal) => {
             const isMatch = animal.indexOf(filterVal) !== -1;
-            console.log(animal.indexOf(filterVal))
-            return isMatch
+            return isMatch;
           })
           .map((animal) => (
-          <li key={animal}>{animal}</li>
-        ))}
+            <li key={animal}>{animal}</li>
+          ))}
       </ul>
     </>
   );
