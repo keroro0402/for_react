@@ -1,0 +1,17 @@
+$woringColor: red;
+$safeColor: blue;
+$defaultSpace: 4px;
+$defaultSize: 2rem;
+
+.comp {
+  &__items {
+    padding: $defaultSpace;
+    font-size: $defaultSize;
+    color: $safeColor;
+    font-weight: bold;
+  }
+
+  &__items::after {
+    content: '　：　みじんこ';
+  }
+}
