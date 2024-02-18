@@ -1,7 +1,7 @@
 /* POINT css-in-js（styled-components） */
 
-import { useState } from "react";
-import styled from "styled-components";
+import { useState } from 'react';
+import styled from 'styled-components';
 
 // POINT 拡張機能 styled-components.vscode-styled-components
 
@@ -20,9 +20,9 @@ const StyledButton = styled.button`
   text-align: center;
   line-height: 60px;
   /* POINT valueを関数にすることで、引数にpropsを受け取ることができる。
-  { isSelected } の部分を変更することで受け取る名前を変更することができる。
+  { isselected } の部分を変更することで受け取る名前を変更することができる。
    */
-  background-color: ${({ isSelected }) => (isSelected ? "pink" : "darkcyan")};
+  background-color: ${({ isselected }) => (isselected ? 'pink' : 'darkcyan')};
   transition: all 0.3s ease-out;
 
   /* POINT 疑似クラスの追加 */
@@ -47,7 +47,7 @@ const StyledButton = styled.button`
 // POINT スタイルの継承。styled()でラップする
 const StyledSubButton = styled(StyledButton)`
   background-color: ${({ isSelectedSub }) =>
-    isSelectedSub ? "crimson" : "coral"};
+    isSelectedSub ? 'crimson' : 'coral'};
 `;
 
 const StyledOliveButton = styled(StyledButton)`
@@ -55,10 +55,10 @@ const StyledOliveButton = styled(StyledButton)`
 `;
 
 const Example = () => {
-  const [isSelected, setIsSelected] = useState(false);
+  const [isselected, setIsSelected] = useState(false);
   const [isSelectedSub, setIsSelectedSub] = useState(false);
 
-  const onClickHandler = () => setIsSelected(!isSelected);
+  const onClickHandler = () => setIsSelected(!isselected);
   const onClickSubHandler = () => setIsSelectedSub(!isSelectedSub);
 
   /* POINT css-in-jsのメリットとデメリット
@@ -76,10 +76,10 @@ const Example = () => {
   */
 
   return (
-    // 属性にある isSelected は 上記で定義されています。
-    // background-color: ${({ isSelected }) => ~~~ };
+    // 属性にある isselected は 上記で定義されています。
+    // background-color: ${({ isselected }) => ~~~ };
     <>
-      <StyledButton isSelected={isSelected} onClick={onClickHandler}>
+      <StyledButton isselected={isselected} onClick={onClickHandler}>
         ボタン
       </StyledButton>
       <StyledSubButton
@@ -88,7 +88,9 @@ const Example = () => {
       >
         サブボタン
       </StyledSubButton>
-      <StyledOliveButton><span>オリーブ</span></StyledOliveButton>
+      <StyledOliveButton>
+        <span>オリーブ</span>
+      </StyledOliveButton>
     </>
   );
 };

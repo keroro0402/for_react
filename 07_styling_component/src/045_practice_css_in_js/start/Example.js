@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import './style.scss';
 
 const FirstButton = styled.button`
   display: inline-block;
@@ -7,8 +8,17 @@ const FirstButton = styled.button`
   margin: 0.5rem 1rem;
   width: 11rem;
   border: none;
+  background: pink;
 `;
 
+const Two = styled(FirstButton)`
+  background: red;
+  color: white;
+`;
+
+const Ser = styled(Two)`
+  background: ${({ dark }) => (dark ? 'black' : 'green')};
+`;
 const Example = () => {
   return (
     <>
@@ -19,7 +29,7 @@ const Example = () => {
           <li>Q1. FirstButtonのbackgroudをpinkにしてください。</li>
           <li>
             Q2.
-            FirstButtonを継承したSecondButtonを作成し、backgroudをredに、colorをwhiteにしてください。{" "}
+            FirstButtonを継承したSecondButtonを作成し、backgroudをredに、colorをwhiteにしてください。{' '}
           </li>
           <li>
             Q3.
@@ -28,6 +38,9 @@ const Example = () => {
         </ul>
       </p>
       <FirstButton>ボタン1</FirstButton>
+      <Two>ボタン2</Two>
+      <Ser dark>ボタン2</Ser>
+      <Ser>ボタン2</Ser>
     </>
   );
 };
