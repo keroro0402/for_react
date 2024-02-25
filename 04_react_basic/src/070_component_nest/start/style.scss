@@ -57,11 +57,15 @@ h1 {
     color: $SubColor;
 
     &--txt {
-      color: rgb(194, 107, 0);
+      color: rgb(1, 3, 160);
+      text-align: center;
       @media (max-width: 600px) {
         // 最大幅が600px以下になると適応
         color: darkgreen;
       }
+    }
+    &--txt::after {
+      content: '場合:';
     }
   }
 }
