@@ -1,24 +1,5 @@
-import './Example.scss';
-import Comp from './Comp';
+import './style.scss';
 
-const Sub = () => {
-  return (
-    <>
-      <div className='subcomp'>
-        <p>この青枠はpropsで子コンポーネントに渡され、importされました。</p>
-      </div>
-    </>
-  );
+export default () => {
+  return <></>;
 };
-
-const Example = () => {
-  return (
-    <>
-      <Comp />
-      <hr></hr>
-      <Comp comp={Sub()} />
-    </>
-  );
-};
-
-export default Example;

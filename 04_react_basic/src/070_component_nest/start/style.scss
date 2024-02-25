@@ -1,0 +1,32 @@
+/* 変数を使う */
+$main-color: rgb(60, 48, 48); // ケバブ（各単語間をハイフンで区切る）
+$main_size: 1.2rem; // スネーク（各単語間をアンスコで区切る）
+$mainBorder: 3px solid rgb(8, 80, 46); // キャメル（２個目以降の各単語の頭文字が大文字）
+$SubColor: brown; // パスカル（各単語の頭文字が大文字）
+$primary-color: red;
+$primary_border: 3px dotted rgb(237, 18, 2);
+
+h1 {
+  font-size: 2rem;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.main {
+  margin: 0.5rem;
+  border: $mainBorder;
+
+  &__item {
+    margin: 1.5rem;
+    padding: $main_size;
+    border: $primary_border;
+
+    &--txt {
+      color: $main-color;
+      font-size: 1.1rem;
+      margin: 1rem;
+    }
+  }
+}
