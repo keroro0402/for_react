@@ -1,10 +1,3 @@
-import './t.scss';
-const Example = () => {
-  return (
-    <div className='cont'>
-      <h3>Hello Component</h3>
-    </div>
-  );
-};
+function practice() {}
 
-export default Example;
+export default practice;
