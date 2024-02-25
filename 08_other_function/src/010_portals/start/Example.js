@@ -1,57 +1,92 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Modal from './components/Modal';
-
-/* POINT createPortalの使い方
-第一引数: React の子要素としてレンダー可能なもの （要素、文字列、フラグメント、コンポーネントなど）
-第二引数: レンダー先のDOM要素
-*/
-
-/* POINT createPortalはどんなときに使うか？
-子要素は親要素のスタイルによって表示に制限を受ける場合があります。
-（overflow: hidden 、 z-index 、 width　など・・・ ）
-それらの制限なく、子要素が親要素を「飛び出して」表示する必要があるときにcreatePortalを使うのが有効です。
-モーダル、ポップアップ、トーストは使用の代表例です。
-*/
-/**
- * sas
- * sa
- * sa
- * sa
- * sa
- * sa
- * sa
- * sa
- * sa
- * sa
- * sa
- * sa
- * sas
- * 2
- * 2
- * 2
- * 2
- * 22
- * 
- *q
-
- */
-const Example = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  return (
-    <div>
-      <div className='container start'></div>
-
-      <button
-        type='button'
-        onClick={() => setModalOpen(true)}
-        disabled={modalOpen}
-      >
-        モーダルを表示する
-      </button>
-      {modalOpen && <Modal handleCloseClick={() => setModalOpen(false)} />}
-    </div>
-  );
+const Portal = ({ children }) => {
+  const target = document.querySelector('.cont');
+  return createPortal(children, target);
 };
 
-export default Example;
+let todoLists = [
+  {
+    task: '買い物',
+    id: 1,
+  },
+  {
+    task: '散歩',
+    id: 2,
+  },
+  {
+    task: 'デート',
+    id: 3,
+  },
+];
+export default () => {
+  let [todos, setTodos] = useState(todoLists);
+  let [add, setAdd] = useState('');
+  let [flg, setFlg] = useState(false);
+
+  let deleteTodos = (data) => {
+    let newTodos = todos.filter((item) => {
+      return item.id != data;
+    });
+    setTodos(newTodos);
+  };
+
+  const createTodo = (e) => {
+    e.preventDefault();
+    let newTodo = {
+      task: add,
+      id: Math.floor(Math.random() * 1e5),
+    };
+    if (!e.target[0].value) {
+      return false;
+    } else {
+      setTodos([...todos, newTodo]);
+      setAdd('');
+    }
+  };
+
+  return (
+    <>
+      <div className='cont'></div>
+      <button
+        onClick={() => {
+          setFlg(true);
+        }}
+      >
+        表示
+      </button>
+      {flg && (
+        <Portal>
+          <Modal handleCloseClick={() => setFlg(false)} />
+        </Portal>
+      )}
+
+      {todos.map((item) => {
+        return (
+          <p key={item.id}>
+            <button
+              onClick={() => {
+                deleteTodos(item.id);
+              }}
+            >
+              完了
+            </button>
+            : {item.task}
+          </p>
+        );
+      })}
+
+      <form onSubmit={createTodo}>
+        <input
+          type='text'
+          value={add}
+          onChange={(e) => {
+            setAdd(e.target.value);
+          }}
+        />
+        <button>追加</button>
+      </form>
+    </>
+  );
+};

@@ -1,25 +1,58 @@
-import { useState } from "react";
+import { createPortal } from 'react-dom';
+import { useState, useRef } from 'react';
 
-const Case1 = () => {
-  const [value, setValue] = useState("");
+const Portal = () => {
+  let [videoFlg, setVideoFlg] = useState(false);
 
-  return (
-    <div>
-      <h3>ユースケース1</h3>
-      <input type="text" value={value} onChange={(e) => setValue(e.target.value)} />
-      <button onClick>
-        インプット要素をフォーカスする
-      </button>
-    </div>
-  );
-};
-
-const Example = () => {
+  let videoRef = useRef();
   return (
     <>
-      <Case1 />
+      <p>ここはビデオエリアです</p>
+      <video ref={videoRef} style={{ width: '100%' }}>
+        <source src='./sample.mp4'></source>
+      </video>
+      <button
+        onClick={() => {
+          if (!videoFlg) {
+            videoRef.current.play();
+          } else {
+            videoRef.current.pause();
+          }
+          setVideoFlg((item) => !item);
+        }}
+      >
+        {videoFlg ? 'STOP' : 'PLAY'}
+      </button>
     </>
   );
 };
 
-export default Example;
+export default () => {
+  let [flg, setFlg] = useState(false);
+
+  const PortalVideo = ({ children }) => {
+    const target = document.querySelector('.videoarea');
+    console.log(createPortal(children, target));
+    return createPortal(children, target);
+  };
+
+  return (
+    <>
+      <div>
+        <button
+          onClick={() => {
+            setFlg(!flg);
+          }}
+        >
+          {flg ? 'ビデオプレーヤー非表示' : 'ビデオプレーヤー表示'}
+        </button>
+        <div className='videoarea'></div>
+        {flg && (
+          <PortalVideo>
+            <Portal />
+          </PortalVideo>
+        )}
+      </div>
+    </>
+  );
+};
