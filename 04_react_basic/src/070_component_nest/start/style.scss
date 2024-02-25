@@ -5,6 +5,16 @@ $mainBorder: 3px solid rgb(8, 80, 46); // キャメル（２個目以降の各�
 $SubColor: brown; // パスカル（各単語の頭文字が大文字）
 $primary-color: red;
 $primary_border: 3px dotted rgb(237, 18, 2);
+$outer_padiing_space: 1rem;
+$outer_margin_space: 1rem;
+$OuterBorder: 3px solid rgb(8, 80, 46);
+$outerTxtColor: rgb(171, 27, 51);
+$outer-font-size: 1.6rem;
+$inner_padiing_space: 1.2rem;
+$inner_margin_space: 1.2rem;
+$InnerBorder: 3px solid rgb(117, 6, 102);
+$innerTxtColor: rgb(49, 27, 171);
+$inner-font-size: 1.4rem;
 
 h1 {
   font-size: 2rem;
@@ -27,6 +37,31 @@ h1 {
       color: $main-color;
       font-size: 1.1rem;
       margin: 1rem;
+    }
+  }
+}
+.h2 {
+  padding: 0;
+  margin: 0;
+}
+.section {
+  border: $OuterBorder;
+  margin: $outer_margin_space;
+  padding: $outer_padiing_space;
+
+  &__item {
+    border: $InnerBorder;
+    margin: $inner_margin_space;
+    padding: $inner_padiing_space;
+    font-size: $inner-font-size;
+    color: $SubColor;
+
+    &--txt {
+      color: rgb(194, 107, 0);
+      @media (max-width: 600px) {
+        // 最大幅が600px以下になると適応
+        color: darkgreen;
+      }
     }
   }
 }
